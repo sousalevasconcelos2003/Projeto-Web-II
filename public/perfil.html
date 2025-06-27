@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil do Usuário</title>
+  <link rel="stylesheet" href="css/estilo.css" />
+
+</head>
+<body class="perfil-body">
+
+  <div class="container">
+  <div class="perfil">
+  <img id="fotoPerfil" src="/imagens/perfil_padrao.jpg" alt="Foto de perfil" />
+  <div class="perfil-info">
+    <h2 id="nomeUsuario">Nome do Usuário</h2>
+    <div class="botoes">
+      <button id="btnAlterarFoto">Alterar Foto</button>
+      <button id="btnCriarJogo">Criar Novo Jogo</button>
+    </div>
+    
+    <input type="file" id="inputFoto" accept="image/*" style="display:none" />
+  </div>
+</div>
+
+
+    <div class="jogos">
+      <h3>Seus Jogos Criados</h3>
+      <div class="lista-jogos">
+        <div class="jogo">
+          <h4>Quiz sobre Filmes</h4>
+          <button>Compartilhar</button>
+        </div>
+        <div class="jogo">
+          <h4>Memória de Cores</h4>
+          <button>Compartilhar</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <script src="js/script.js"></script>
+</body>
+</html>
