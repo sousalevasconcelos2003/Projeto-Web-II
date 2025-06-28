@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Criar Jogo</title>
+  <link rel="stylesheet" href="../css/estilo.css" />
+
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #219150;
+    }
+
+    .pergunta {
+      margin-top: 15px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+    <a href="../perfil.html">Voltar ao Perfil</a>
+
+  <div class="container">
+    <h2>Criar Novo Jogo</h2>
+
+    <label for="tipoJogo">Tipo de Jogo</label>
+    <select id="tipoJogo" onchange="atualizarFormulario()">
+      <option value="quiz">Quiz</option>
+      <option value="memoria">Memória</option>
+      <option value="associacao">Associação</option>
+    </select>
+
+    <label for="titulo">Título do Jogo</label>
+    <input type="text" id="titulo" placeholder="Ex: Quiz sobre futebol" />
+
+    <div id="formularioDinamico">
+      
+    </div>
+
+    <button onclick="salvarJogo()">Salvar Jogo</button>
+  </div>
+
+  <script>
+    function atualizarFormulario() {
+      const tipo = document.getElementById('tipoJogo').value;
+      const container = document.getElementById('formularioDinamico');
+      container.innerHTML = '';
+
+      if (tipo === 'quiz') {
+        container.innerHTML = `
+          <h3>Perguntas do Quiz</h3>
+          <div id="perguntas">
+            <div class="pergunta">
+              <label>Pergunta:</label>
+              <input type="text" name="pergunta" placeholder="Ex: Qual é a capital do Brasil?" />
+              <label>Resposta Correta:</label>
+              <input type="text" name="correta" />
+              <label>Outras Respostas:</label>
+              <input type="text" name="opcao1" placeholder="Opção 1" />
+              <input type="text" name="opcao2" placeholder="Opção 2" />
+              <input type="text" name="opcao3" placeholder="Opção 3" />
+            </div>
+          </div>
+          <button type="button" onclick="adicionarPergunta()">+ Adicionar Pergunta</button>
+        `;
+      }
+
+    }
+
+    function adicionarPergunta() {
+      const perguntasDiv = document.getElementById('perguntas');
+      const novaPergunta = document.createElement('div');
+      novaPergunta.className = 'pergunta';
+      novaPergunta.innerHTML = `
+        <label>Pergunta:</label>
+        <input type="text" name="pergunta" />
+        <label>Resposta Correta:</label>
+        <input type="text" name="correta" />
+        <label>Outras Respostas:</label>
+        <input type="text" name="opcao1" />
+        <input type="text" name="opcao2" />
+        <input type="text" name="opcao3" />
+      `;
+      perguntasDiv.appendChild(novaPergunta);
+    }
+
+    function salvarJogo() {
+  const titulo = document.getElementById('titulo').value;
+  const tipo = document.getElementById('tipoJogo').value;
+  
+  // Pega as perguntas (caso seja tipo quiz)
+  const perguntas = [];
+  if (tipo === 'quiz') {
+    const perguntasDOM = document.querySelectorAll('#perguntas .pergunta');
+    perguntasDOM.forEach(p => {
+      const pergunta = p.querySelector('[name="pergunta"]').value;
+      const correta = p.querySelector('[name="correta"]').value;
+      const opcao1 = p.querySelector('[name="opcao1"]').value;
+      const opcao2 = p.querySelector('[name="opcao2"]').value;
+      const opcao3 = p.querySelector('[name="opcao3"]').value;
+
+      perguntas.push({
+        pergunta,
+        correta,
+        opcoes: [correta, opcao1, opcao2, opcao3]
+      });
+    });
+  }
+
+  const dados = {
+    nome: titulo,
+    descricao: `Tipo: ${tipo}`,
+    perguntas: perguntas // opcional, você pode ignorar no backend se não usar ainda
+  };
+
+  fetch('/jogos', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(dados)
+  })
+  .then(res => {
+    if (!res.ok) throw new Error("Erro ao salvar");
+    return res.json();
+  })
+  .then(data => {
+    alert("Jogo salvo com sucesso!");
+    console.log(data);
+  })
+  .catch(err => {
+    console.error(err);
+    alert("Erro ao salvar o jogo.");
+  });
+}
+
+    
+
+  
+    atualizarFormulario();
+  </script>
+</body>
+</html>
