@@ -58,3 +58,38 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 //
 
+//script do login.html
+document.addEventListener('DOMContentLoaded', () => {
+  
+  const formLogin = document.getElementById('formLogin');
+
+  if (formLogin) {
+    formLogin.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value;
+
+      try {
+        const resposta = await fetch('/api/usuarios/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, senha })
+        });
+
+        if (resposta.ok) {
+          alert('Login realizado com sucesso!');
+          window.location.href = 'perfil.html';
+        } else {
+          const msg = await resposta.text();
+          alert(`Erro: ${msg}`);
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Erro ao conectar com o servidor.');
+      }
+    });
+  }
+});
+
+
