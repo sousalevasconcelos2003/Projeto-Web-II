@@ -29,36 +29,59 @@ module.exports = router;
 
 //rota de login
 
-document.addEventListener('DOMContentLoaded', () => {
-  
-  const formLogin = document.getElementById('formLogin');
+const express = require('express');
+const router = express.Router();
+const Usuario = require('../models/usuario');
 
-  if (formLogin) {
-    formLogin.addEventListener('submit', async function (event) {
-      event.preventDefault();
+// Rota POST para cadastro (já existente)
+router.post('/cadastro', async (req, res) => {
+  try {
+    const { nome, email, senha } = req.body;
 
-      const email = document.getElementById('email').value;
-      const senha = document.getElementById('senha').value;
+    if (!nome || !email || !senha) {
+      return res.status(400).send('Preencha todos os campos.');
+    }
 
-      try {
-        const resposta = await fetch('/api/usuarios/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, senha })
-        });
+    const existe = await Usuario.findOne({ email });
+    if (existe) {
+      return res.status(400).send('E-mail já cadastrado.');
+    }
 
-        if (resposta.ok) {
-          alert('Login realizado com sucesso!');
-          window.location.href = 'perfil.html';
-        } else {
-          const msg = await resposta.text();
-          alert(`Erro: ${msg}`);
-        }
-      } catch (err) {
-        console.error(err);
-        alert('Erro ao conectar com o servidor.');
-      }
-    });
+    const novoUsuario = new Usuario({ nome, email, senha });
+    await novoUsuario.save();
+
+    return res.status(201).send('Usuário cadastrado com sucesso!');
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send('Erro no servidor.');
   }
 });
 
+
+// ✅ Rota POST para login
+router.post('/login', async (req, res) => {
+  try {
+    const { email, senha } = req.body;
+
+    if (!email || !senha) {
+      return res.status(400).send('Preencha todos os campos.');
+    }
+
+    const usuario = await Usuario.findOne({ email });
+
+    if (!usuario) {
+      return res.status(404).send('Usuário não encontrado.');
+    }
+
+    if (usuario.senha !== senha) {
+      return res.status(401).send('Senha incorreta.');
+    }
+
+    return res.status(200).send('Login realizado com sucesso!');
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send('Erro no servidor.');
+  }
+});
+
+module.exports = router;
