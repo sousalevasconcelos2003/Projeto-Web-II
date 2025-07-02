@@ -1,0 +1,73 @@
+/* Cadastro.module.css */
+
+/* Mantive exatamente as classes do seu CSS original */
+
+.cadastroBody {
+  background: #e0f7fa;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.form-container {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #00796b;
+}
+
+.form-container label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.form-container button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00796b;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #004d40;
+}
+
+.voltar {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.voltar a {
+  color: #00796b;
+  text-decoration: none;
+}
+
+.voltar a:hover {
+  text-decoration: underline;
+}

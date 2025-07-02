@@ -1,0 +1,63 @@
+.jogarContainer {
+  background: #f1f8e9; /* verde bem claro */
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jogarContainer h2 {
+  color: #2e7d32;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.jogoCard {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.jogoCard h3 {
+  margin-top: 0;
+  color: #00796b;
+}
+
+.jogoCard button {
+  margin: 5px 10px 0 0;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00796b;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.jogoCard button:hover {
+  background-color: #004d40;
+}
+
+.voltarBtn {
+  margin-top: 30px;
+  padding: 12px 24px;
+  background-color: #004d40;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 10%;
+}
+
+.voltarBtn:hover {
+  background-color: #b71c1c;
+}

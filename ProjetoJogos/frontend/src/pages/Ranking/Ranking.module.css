@@ -1,0 +1,64 @@
+.formContainer {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+}
+
+.formContainer h2 {
+  text-align: center;
+  color: #00796b;
+  margin-bottom: 20px;
+}
+
+.rankingTable {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rankingHeader, .rankingRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.rankingHeader {
+  background-color: #e0f7fa;
+  font-weight: bold;
+  color: #00796b;
+}
+
+.rankingRow {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.rankingRow:hover {
+  background-color: #e0f7fa;
+}
+
+.voltar {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.voltar button {
+  padding: 10px 20px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.voltar button:hover {
+  background-color: #004d40;
+}

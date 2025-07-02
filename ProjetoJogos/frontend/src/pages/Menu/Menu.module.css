@@ -1,0 +1,51 @@
+.menuContainer {
+  background: linear-gradient(to right, #74ebd5, #9face6);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  padding: 60px 20px;
+  text-align: center;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuContainer h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.menuContainer p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.botaoLink {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 2px solid #3498db;
+  border-radius: 10px;
+  text-decoration: none;
+  background: none;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: white;
+  color: black;
+
+}
+
+.botaoLink:hover {
+  background-color: #3498db;
+  color: white;
+}
