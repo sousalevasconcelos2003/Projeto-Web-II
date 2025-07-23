@@ -1,0 +1,114 @@
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #fefefe;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+h3 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  color: #444;
+}
+
+.flexRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1;
+  min-width: 280px;
+}
+
+.item {
+  background-color: #a7d8f8;
+  color: #1a1a1a;
+  padding: 14px 20px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  cursor: grab;
+  user-select: none;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item:hover {
+  background-color: #91cbe9;
+  transform: scale(1.03);
+}
+
+.dragged {
+  opacity: 0.5;
+  cursor: default;
+  background-color: #d4ecf9;
+}
+
+.categoria {
+  background-color: #fff3bf;
+  color: #333;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 2px dashed transparent;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-weight: 500;
+  min-height: 50px;
+}
+
+.dragover {
+  background-color: #fff9db;
+  border-color: #ffec99;
+}
+
+.correta {
+  background-color: #c3fae8 !important;
+  border-color: #63e6be !important;
+  color: #0b7285 !important;
+  font-weight: bold;
+}
+
+.errada {
+  background-color: #ffe8cc !important;
+  border-color: #ffc078 !important;
+  color: #d9480f !important;
+  font-weight: bold;
+}
+
+.resultado {
+  margin: 20px auto;
+  background-color: #f1f3f5;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.voltarBtn {
+  background-color: #ffd43b;
+  color: #333;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background-color 0.3s;
+}
+
+.voltarBtn:hover {
+  background-color: #fcc419;
+}

@@ -1,0 +1,12 @@
+.topo {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 8px 12px;
+  border-bottom-left-radius: 10px;
+  font-size: 14px;
+  color: #333;
+  z-index: 1000;
+  font-weight: 500;
+}

@@ -1,0 +1,95 @@
+.loginBody {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #d0ebff, #fff9db);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.form-container {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.form-container h2 {
+  margin-bottom: 24px;
+  font-size: 26px;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: left;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+input {
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  border-color: #4dabf7;
+  box-shadow: 0 0 5px rgba(77, 171, 247, 0.5);
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: #ffd43b;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #fcc419;
+}
+
+.voltar {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.voltar button {
+  background: none;
+  border: none;
+  color: #339af0;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+}
+
+.voltar button:hover {
+  text-decoration: underline;
+}
+
+.erroMensagem {
+  background-color: #ffe3e3;
+  color: #c92a2a;
+  padding: 10px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  font-weight: 500;
+}

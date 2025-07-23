@@ -1,0 +1,76 @@
+/* Ranking.module.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:wght@400;600&display=swap');
+
+.formContainer {
+  font-family: 'Rubik', sans-serif;
+  background-color: #e6f0ff;
+  border-radius: 15px;
+  padding: 30px;
+  width: 80%;
+  max-width: 700px;
+  margin: 40px auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+  color: #1f4e79;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.rankingTable {
+  background-color: #fff;
+  border: 2px solid #ffd966;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.rankingHeader, .rankingRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+.rankingHeader {
+  font-weight: 600;
+  background-color: #ffe599;
+  border-bottom: 2px solid #ffd966;
+  border-radius: 10px 10px 0 0;
+}
+
+.rankingRow:nth-child(even) {
+  background-color: #f0f8ff;
+}
+
+.rankingRow:nth-child(odd) {
+  background-color: #fdfdfd;
+}
+
+.rankingRow:hover {
+  background-color: #d0ebff;
+  transition: 0.3s;
+}
+
+.voltar {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.voltar button {
+  background-color: #1f4e79;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.voltar button:hover {
+  background-color: #163b5d;
+}
