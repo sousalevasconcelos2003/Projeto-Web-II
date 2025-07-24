@@ -11,7 +11,6 @@ function Menu({ onMudarPagina }) {
         <button className={styles.botaoLink} onClick={() => onMudarPagina('criar')}>Criar Jogo</button>
         <button className={styles.botaoLink} onClick={() => onMudarPagina('jogar')}>Jogar</button>
         <button className={styles.botaoLink} onClick={() => onMudarPagina('ranking')}>Ver Rankings</button>
-        <button className={styles.botaoLink} onClick={() => onMudarPagina('perfil')}>Perfil</button> {/* Novo botão */}
         <button className={styles.botaoLink} onClick={() => onMudarPagina('login')}>Sair</button>
       </div>
     </div>
